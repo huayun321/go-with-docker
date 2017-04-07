@@ -5,12 +5,13 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"github.com/urfave/negroni"
+	"fmt"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	log.Println(vars)
-	w.Write([]byte("hello！ server is running!!!"))
+	fmt.Fprint(w, "hello with fmt.Fprint")
 }
 
 func main() {
